@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="alurapic">
+<html lang="pt-br" ng-app="angular">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Alurapic</title>
+        <title>Angular App</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <script src="js/lib/angular.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controller.js"></script>
+        <script src="js/directives/minhas-diretivas.js"></script>
     </head>
     <body ng-controller="FotosController">
         <div class="container">
             <div class="jumbotron">
-                <h1 class="text-center">Alurapic</h1>               
+                <!-- <h1 class="text-center">Angular App</h1>                -->
+                <h4 class="text-center">Angular App</h4>               
             </div>
-            <div ng-repeat="foto in fotos" class="panel panel-default">
-                <div class="panel-heading">
-                    <h3>{{foto.titulo}}</h3>
-                </div>
-                <div class="panel-body">
+            <div class="row">
+                <!-- diretiva meu painel -->
+                <meu-painel ng-repeat="foto in fotos" titulo="{{foto.titulo}}">
                     <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-                </div>
-            </div> <!-- Fim panel -->
+                </meu-painel>
+                <!-- fim diretiva meu painel -->
+            </div><!-- fim row -->
         </div> <!-- fim container -->        
     </body>
 </html>

@@ -4,3 +4,4 @@ _DS_Store
 .DS_Store?
 node_modules/
 .dpl/
+npm-debug.log
