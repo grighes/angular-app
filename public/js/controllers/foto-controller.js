@@ -1,9 +1,10 @@
-angular.module('angular').controller('FotoController', function($scope, $http) {
+angular.module('angular').controller('FotoController', function($scope, $http, $routeParams) {
   $scope.foto = {};
   $scope.mensagem = '';
 
-  $scope.submeter = function() {
+  console.log($routeParams.fotoId);
 
+  $scope.submeter = function() {
     if ($scope.formulario.$valid) {
       $http.post('/v1/fotos', $scope.foto)
       .success(function() {
