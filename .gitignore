@@ -5,3 +5,4 @@ _DS_Store
 node_modules/
 .dpl/
 npm-debug.log
+data.db
