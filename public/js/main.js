@@ -1,7 +1,7 @@
 /*
   Adiciona dependecias do modulo principal dentro do array
 */
-angular.module('angular', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+angular.module('angular', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'meusServicos'])
   .config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
