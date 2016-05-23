@@ -9,31 +9,25 @@
 angular.module('angular').controller('FotosController', function($scope, recursoFoto) {
 
   $scope.fotos = [];
-	$scope.filtro = '';
+  $scope.filtro = '';
   $scope.mensagem = '';
 
-  /* Recurso angular especializado em consumir dados do server */
-  var recursoFoto = $resource('/v1/fotos/:fotoId');
-  
   recursoFoto.query(function(fotos) {
     $scope.fotos = fotos;
   }, function(erro) {
     console.log(erro);
   });
 
-  /* Passa foto em especifico no parametro */
   $scope.remover = function(foto) {
 
     recursoFoto.delete({fotoId: foto._id}, function() {
-      // Realiza remoção da foto 
-      var indiceFoto = $scope.fotos.indexOf(foto);
-      $scope.fotos.splice(indiceFoto, 1);
-      $scope.mensagem = 'Foto ' + foto.titulo + ' foi removida';
+      var indiceDaFoto = $scope.fotos.indexOf(foto);
+      $scope.fotos.splice(indiceDaFoto, 1);
+      $scope.mensagem = 'Foto ' + foto.titulo + ' removida com sucesso!';
     }, function(erro) {
       console.log(erro);
-      $scope.mensagem = 'Foto ' + foto.titulo + ' não foi removida';
+      $scope.mensagem = 'Não foi possível apagar a foto ' + foto.titulo;
     });
-
-  }
+  };
 
 });
